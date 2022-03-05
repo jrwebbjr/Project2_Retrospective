@@ -6,6 +6,7 @@ const morgan = require("morgan");
 
 const path = require("path")
 
+const Photograph = require("./models/photograph");
 
 
 //---* Create Express App *---//
@@ -25,12 +26,14 @@ app.use(express.urlencoded({extended: true}));
 
 //---* Routes *---//
 app.get("/", (req, res) => {
-    res.send("Your Server Is Running")
+    res.send("Home Page, Your Server Is Running")
 })
 //Index
-
+app.get("/photograph", (req, res) => {
+    res.send("Index Route Working")
+})
 //New
-app.get("/new", (req, res) => {
+app.get("/photograph/new", (req, res) => {
     res.render("photograph/New")
 })
 

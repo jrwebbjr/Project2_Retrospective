@@ -4,7 +4,7 @@ const DefaultLayout = require("../Default.jsx");
 class New extends React.Component {
     render(){
         return (
-            <DefaultLayout>
+            <div>
                 <form action="/photographs" method="post">
                     <fieldset>
                         <legend>Upload a new Photograph</legend>
@@ -20,7 +20,7 @@ class New extends React.Component {
                     </fieldset>
                     <input type="Submit" value="upload new photograph" />
                 </form>
-            </DefaultLayout>
+            </div>  
         )
     }
 }
