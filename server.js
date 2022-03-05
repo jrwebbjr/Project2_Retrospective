@@ -27,7 +27,22 @@ app.use(express.urlencoded({extended: true}));
 app.get("/", (req, res) => {
     res.send("Your Server Is Running")
 })
+//Index
 
+//New
+app.get("/new", (req, res) => {
+    res.render("photograph/New")
+})
+
+//Delete
+
+//Update
+
+//Create
+
+//Edit
+
+//Show
 
 
 
