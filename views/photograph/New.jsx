@@ -9,10 +9,16 @@ class New extends React.Component {
                     <fieldset>
                         <legend>Upload a new Photograph</legend>
                         <label>
+                            Photograph:<input type="text" name="photograph" placeholder="Upload Photograph"/>
+                        </label>
+                        <label>
                             Title:<input type="text" name="title" placeholder="Title of Photograph"/>
                         </label>
                         <label>
                             Photographer:<input type="text" name="name" placeholder="Photographers Name"/>
+                        </label>
+                        <label>
+                            Camera:<input type="text" name="camera" placeholder="Camera/Gear used"/>
                         </label>
                         <label>
                             Is Image for Sale?<input type="checkbox" name="isImageForSale"/>
