@@ -47,7 +47,7 @@ app.get("/photograph/new", (req, res) => {
 //Edit
 
 //Show
-app.get("/fruits/:id", (req, res) => {
+app.get("/photograph/:id", (req, res) => {
     Photograph.findById(req.params.id, (err, foundPhotographs) => {
         if (err){
             res.status(400).send(err)
