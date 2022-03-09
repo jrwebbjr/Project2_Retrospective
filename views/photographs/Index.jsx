@@ -1,32 +1,32 @@
 const React = require("react");
 const Photograph = require("../../models/photograph");
-const DefaultLayout = require("./Default")
+const DefaultLayout = require("../layout/Default.jsx")
 
 class Index extends React.Component {
     render(){
-        const photograph = this.props.photograph
+        const { photograph } = this.props;
         return (
-            <Default title="Photographs Index Page">
+            <DefaultLayout>
                 <div>
                     <nav>
                         <a href="/photographs/new">Upload a new photograph</a>
                     </nav>
-                    <ul>
+                    {/*<ul>
                         {
                             Photograph.map((photograph) => {
                                 return (
                                     <li key={`photograph._id`}>
-                                        <a href={`/photograph/${photograph._id}`}>{photograph.title}</a> by {photograph.photographer}
-                                    <form action={`/photograph/${photograph._id}?_method=Delete`} method="POST">
+                                        <a href={`/photographs/${photograph._id}`}>{photograph.title}</a> by {photograph.photographer}
+                                    <form action={`/photographs/${photograph._id}?_method=Delete`} method="POST">
                                         <input type="submit" value={`Delete ${photograph.title}`} />
                                     </form>    
                                     </li>
                                 )
                             })
                         }
-                    </ul>
+                    </ul>*/}
                 </div>    
-            </Default>
+            </DefaultLayout>
         )
     }
 }

@@ -27,40 +27,77 @@ app.use(express.static("public"));
 
 //---* Routes *---//
 app.get("/", (req, res) => {
-    res.send("Home Page, Your Server Is Running")
+    res.render("photographs/Index")
 })
+
 //Index
 app.get("/photographs", (req, res) => {
-    res.send("Index Route Working")
+    res.redirect("photographs/Index")
 })
+
 //New
 app.get("/photographs/new", (req, res) => {
-    res.render("photographs/New")
+    res.render("New")
 })
 
 //Delete
+app.delete("/:id", (req, res) => {
+    const { id } = req.params;
+    Photograph.findByIdAndDelete(id)
+    .then(() => {
+        res.redirect("/photographs")
+    })
+    .catch((error) => {
+        res.status(400).send({ error })
+    })
+})
 
 //Update
+app.put("/:id", (req, res) => {
+    const { id } = req.params;
+    req.body.isImageForSale = req.body.isImageForSale === "on" ? true : false;
+    Photograph.findByIdAndUpdate(id, req.body, { new: true })
+    .then((updatedPhotograph) => {
+        res.redirect(`/photographs/${id}`)
+    })
+    .catch((error) => {
+        res.status(400).send({ error })
+    })
+})
 
 //Create
 app.post("/photographs", (req, res) => {
     Photograph.create(req.body, (err, createdPhotograph) => {
-        
+        if(err){
+            res.status(400).send(err)
+        } else {
+            res.redirect("/photographs")
+        }
     })
 })
 //Edit
+app.get("/:id/edit", (req, res) => {
+    const { id } = req.params;
+    Photograph.findById(id)
+    .then((photograph) => {
+        res.render("photographs/Edit", { fruit })
+    })
+    .catch((error) => {
+        res.status(400).json({ error })
+    })
+})
 
 //Show
-app.get("/photographs/:id", (req, res) => {
-    Photograph.findById(req.params.id, (err, foundPhotographs) => {
-        if (err){
-            res.status(400).send(err)
-        } else {
-            res.render("photographs/Show", {
-                photograph: foundPhotographs
-            })
-        }
-    })
+app.get("/:id", (req, res) => {
+    const { id } = req.params
+
+    Photograph.findById(id) 
+        .then((photograph) => {
+            res.render("fruits/Show", { photograph })
+        })
+        .catch((error) => {
+            res.status(400).json({ error })    
+        })
 })
 
 
