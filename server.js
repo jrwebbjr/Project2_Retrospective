@@ -30,12 +30,12 @@ app.get("/", (req, res) => {
     res.send("Home Page, Your Server Is Running")
 })
 //Index
-app.get("/photograph", (req, res) => {
+app.get("/photographs", (req, res) => {
     res.send("Index Route Working")
 })
 //New
-app.get("/photograph/new", (req, res) => {
-    res.render("photograph/New")
+app.get("/photographs/new", (req, res) => {
+    res.render("photographs/New")
 })
 
 //Delete
@@ -43,16 +43,20 @@ app.get("/photograph/new", (req, res) => {
 //Update
 
 //Create
-
+app.post("/photographs", (req, res) => {
+    Photograph.create(req.body, (err, createdPhotograph) => {
+        
+    })
+})
 //Edit
 
 //Show
-app.get("/photograph/:id", (req, res) => {
+app.get("/photographs/:id", (req, res) => {
     Photograph.findById(req.params.id, (err, foundPhotographs) => {
         if (err){
             res.status(400).send(err)
         } else {
-            res.render("photograph/Show", {
+            res.render("photographs/Show", {
                 photograph: foundPhotographs
             })
         }
