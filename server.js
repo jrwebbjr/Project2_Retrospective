@@ -3,7 +3,7 @@
 require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
-
+const methodOverride = require("method-override")
 const path = require("path")
 
 const Photograph = require("./models/photograph");
@@ -21,7 +21,8 @@ app.set("view engine", "jsx")
 
 app.use(morgan("tiny"));
 app.use(express.urlencoded({extended: true}));
-
+app.use(methodOverride("_method"));
+app.use(express.static("public"));
 
 
 //---* Routes *---//
