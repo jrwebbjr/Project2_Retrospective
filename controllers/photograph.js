@@ -1,43 +1,5 @@
-//---* Import Dependencies *---//
+//---* Photograph Routes *---//
 
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
-const morgan = require("morgan");
-const methodOverride = require("method-override")
-const path = require("path")
-
-const Photograph = require("./models/photograph");
-
-
-//---* Create Express App *---//
-//views
-app.use(express.static("public"));
-
-app.set("view engine", "jsx")
-app.engine("jsx", require("express-react-views").createEngine())
-
-
-//models
-mongoose.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-
-//---* Middleware *---//
-
-app.use(morgan("tiny"));
-app.use(express.urlencoded({ extended: true }));
-app.use((req, res, next) => {
-    console.log(req.body)
-    next()
-})
-app.use(methodOverride("_method"));
-
-
-
-//---* Routes *---//
 //Home
 app.get("/", (req, res) => {
     res.render("photographs/Home")
@@ -118,9 +80,3 @@ app.get("/photographs/:id", (req, res) => {
             res.status(400).json({ error })    
         })
 })
-
-
-//---* Server Listener *---//
-
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`*** Listening on port ${PORT} ***`))

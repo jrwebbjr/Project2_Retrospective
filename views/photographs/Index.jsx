@@ -1,30 +1,33 @@
 const React = require("react");
-const Photograph = require("../../models/photograph");
 const DefaultLayout = require("../layout/Default.jsx")
 
 class Index extends React.Component {
     render(){
-        const { photograph } = this.props;
+        const photographs = this.props.photographs;
         return (
-            <DefaultLayout>
+            <DefaultLayout title="Index of Photographs">
                 <div>
-                    <nav>
-                        <a href="/photographs/new">Upload a new photograph</a>
-                    </nav>
-                    {/*<ul>
-                        {
-                            Photograph.map((photograph) => {
-                                return (
-                                    <li key={`photograph._id`}>
-                                        <a href={`/photographs/${photograph._id}`}>{photograph.title}</a> by {photograph.photographer}
-                                    <form action={`/photographs/${photograph._id}?_method=Delete`} method="POST">
-                                        <input type="submit" value={`Delete ${photograph.title}`} />
-                                    </form>    
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>*/}
+                    <body>
+                        <nav>
+                            <a href="/photographs/new">Upload a new photograph</a>
+                        </nav>
+                        <ul>
+                            {
+                                photographs.map((photograph) => {
+                                    return (
+                                        <li key={`${photograph._id}`}>
+                                        
+                                        <a href={`/photographs/${photograph._id}`}><img src={photograph.photograph}></img></a><br/>
+                                        {photograph.title} by {photograph.photographer}
+                                        <form action={`/photographs/${photograph._id}?_method=Delete`} method="POST">
+                                            <input type="submit" value={`Delete ${photograph.title}`} />
+                                        </form>    
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </body>
                 </div>    
             </DefaultLayout>
         )
