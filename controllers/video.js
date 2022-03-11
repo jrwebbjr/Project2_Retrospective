@@ -1,7 +1,12 @@
+const express = require("express");
+const Photograph = require("../models/photograph")
+
+const router = express.Router();
+
 //---* Video Routes *---//
 
 //Index
-app.get("/video", (req, res) => {
+router.get("/video", (req, res) => {
     Video.find({}, (err, foundVideos) => {
         if (err) {
             res.status(400).json({ err })
@@ -14,12 +19,12 @@ app.get("/video", (req, res) => {
 })
 
 //New
-app.get("/videos/new", (req, res) => {
+router.get("/videos/new", (req, res) => {
     res.render("videos/New")
 })
 
 //Delete
-app.delete("/videos/:id", (req, res) => {
+router.delete("/videos/:id", (req, res) => {
     const { id } = req.params;
     Video.findByIdAndDelete(id)
     .then(() => {
@@ -31,7 +36,7 @@ app.delete("/videos/:id", (req, res) => {
 })
 
 //Update
-app.put("/videos/:id", (req, res) => {
+router.put("/videos/:id", (req, res) => {
     Video.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedVideo) => {
         if(err){
             res.status(400).send(err)
@@ -42,7 +47,7 @@ app.put("/videos/:id", (req, res) => {
 })
 
 //Create
-app.post("/videos", (req, res) => {
+router.post("/videos", (req, res) => {
     Video.create(req.body, (error, createdVideo) => {
         if(error){
             res.status(400).json({ error })
@@ -53,7 +58,7 @@ app.post("/videos", (req, res) => {
 })
 
 //Edit
-app.get("/videos/:id/edit", (req, res) => {
+router.get("/videos/:id/edit", (req, res) => {
     const { id } = req.params;
     Video.findById(id)
     .then((video) => {
@@ -65,7 +70,7 @@ app.get("/videos/:id/edit", (req, res) => {
 })
 
 //Show
-app.get("/videos/:id", (req, res) => {
+router.get("/videos/:id", (req, res) => {
     const { id } = req.params
 
     Video.findById(id) 
@@ -76,3 +81,5 @@ app.get("/videos/:id", (req, res) => {
             res.status(400).json({ error })    
         })
 })
+
+module.exports = router;

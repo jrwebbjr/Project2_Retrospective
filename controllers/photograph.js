@@ -1,12 +1,17 @@
+const express = require("express");
+const Photograph = require("../models/photograph")
+
+const router = express.Router();
+
 //---* Photograph Routes *---//
 
 //Home
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
     res.render("photographs/Home")
 })
 
 //Index
-app.get("/photographs", (req, res) => {
+router.get("/photographs", (req, res) => {
     Photograph.find({}, (err, foundPhotographs) => {
         if (err) {
             res.status(400).json({ err })
@@ -19,12 +24,12 @@ app.get("/photographs", (req, res) => {
 })
 
 //New
-app.get("/photographs/new", (req, res) => {
+router.get("/photographs/new", (req, res) => {
     res.render("photographs/New")
 })
 
 //Delete
-app.delete("/photographs/:id", (req, res) => {
+router.delete("/photographs/:id", (req, res) => {
     const { id } = req.params;
     Photograph.findByIdAndDelete(id)
     .then(() => {
@@ -36,7 +41,7 @@ app.delete("/photographs/:id", (req, res) => {
 })
 
 //Update
-app.put("/photographs/:id", (req, res) => {
+router.put("/photographs/:id", (req, res) => {
     Photograph.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPhotograph) => {
         if(err){
             res.status(400).send(err)
@@ -47,7 +52,7 @@ app.put("/photographs/:id", (req, res) => {
 })
 
 //Create
-app.post("/photographs", (req, res) => {
+router.post("/photographs", (req, res) => {
     Photograph.create(req.body, (error, createdPhotograph) => {
         if(error){
             res.status(400).json({ error })
@@ -57,7 +62,7 @@ app.post("/photographs", (req, res) => {
     })
 })
 //Edit
-app.get("/photographs/:id/edit", (req, res) => {
+router.get("/photographs/:id/edit", (req, res) => {
     const { id } = req.params;
     Photograph.findById(id)
     .then((photograph) => {
@@ -69,7 +74,7 @@ app.get("/photographs/:id/edit", (req, res) => {
 })
 
 //Show
-app.get("/photographs/:id", (req, res) => {
+router.get("/photographs/:id", (req, res) => {
     const { id } = req.params
 
     Photograph.findById(id) 
@@ -80,3 +85,5 @@ app.get("/photographs/:id", (req, res) => {
             res.status(400).json({ error })    
         })
 })
+
+module.exports = router;

@@ -17,27 +17,28 @@ class DefaultLayout extends React.Component {
                 </head>
                 <body>
                     <header>
-                        <nav className="p-3 navbar navbar-expand-lg navbar-light bg-light border">
-                                <a className="navbar-brand" href="#">
-                                    <img src="https://i.imgur.com/ojISYdI.jpg"/>   
+                        <nav className="p-3 navbar navbar-expand-sm navbar-light bg-light">
+                            <div className="container-fluid">
+                                <a className="navbar-brand" href="/">
+                                    <img classname="d-inline-block align-top"  src="https://i.imgur.com/ojISYdI.jpg"/>   
                                 </a>
-                                <div className="collapse navbar-collapse">
+                                <div className="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul className="navbar-nav">
-                                    <li className="nav-item"><a class="nav-link active" href="/photographs">Photographs</a></li>
-                                    <li className="nav-item"><a class="nav-link active" href="/videos">Video</a></li>
+                                    <li className="nav-item active"><a className="nav-link active" href="/photographs">Photography</a></li>
+                                    <li className="nav-item active"><a className="nav-link active" href="/videos">Video</a></li>
                                     <li className="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Upload
                                         </a>
-                                        <li class="nav-item dropdown">
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="/photographs/new">Upload Photograph</a></li>
-                                            <li><a class="dropdown-item" href="/videos/new">Upload Video</a></li>
+                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a className="dropdown-item" href="/photographs/new">Upload Photograph</a></li>
+                                            <li><a className="dropdown-item" href="/videos/new">Upload Video</a></li>
                                         </ul>
-                                        </li>
                                     </li>
+                                    <li className="nav-item"><a className="nav-link disabled" href="#">User Login</a></li>
                                 </ul>
                                 </div>
+                            </div>
                         </nav>
                     </header>
                     <main>

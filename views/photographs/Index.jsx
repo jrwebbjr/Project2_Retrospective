@@ -11,11 +11,11 @@ class Index extends React.Component {
                         <nav>
                             <a href="/photographs/new">Upload a new photograph</a>
                         </nav>
-                        <ul>
+                        <ul className="list-unstyled list-inline">
                             {
                                 photographs.map((photograph) => {
                                     return (
-                                        <li key={`${photograph._id}`}>
+                                        <li className="list-inline-item" key={`${photograph._id}`}>
                                         
                                         <a href={`/photographs/${photograph._id}`}><img src={photograph.photograph}></img></a><br/>
                                         {photograph.title} by {photograph.photographer}
