@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("./connection");
 
 const photographSchema = new mongoose.Schema({
     photograph: String,

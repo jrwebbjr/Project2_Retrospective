@@ -1,34 +1,40 @@
 const express = require("express");
-const Photograph = require("../models/photograph")
+const Video = require("../models/video")
 
 const router = express.Router();
 
 //---* Video Routes *---//
 
 //Index
-router.get("/video", (req, res) => {
-    Video.find({}, (err, foundVideos) => {
-        if (err) {
-            res.status(400).json({ err })
-        } else {
-            res.render("videos/Index", {
-                videos: foundVideos
-            })
+router.get("/", (req, res) => {
+    Video.find({})
+    .then((videos) => {
+        for(const video of videos){
+            // console.log(videos[video])
+            if(video.video.includes("https://youtu.be/")){
+                const vidId = video.video.slice(17, video.video.length+1)
+                video.video = vidId
+            }
         }
+        res.render("video/Index", { videos })
+    })
+    .catch((error) => {
+        res.status(400).json({ error })
     })
 })
 
+
 //New
-router.get("/videos/new", (req, res) => {
-    res.render("videos/New")
+router.get("/new", (req, res) => {
+    res.render("video/New")
 })
 
 //Delete
-router.delete("/videos/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     const { id } = req.params;
     Video.findByIdAndDelete(id)
     .then(() => {
-        res.redirect("/videos")
+        res.redirect("/video")
     })
     .catch((error) => {
         res.status(400).json({ error })
@@ -36,33 +42,33 @@ router.delete("/videos/:id", (req, res) => {
 })
 
 //Update
-router.put("/videos/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     Video.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedVideo) => {
         if(err){
             res.status(400).send(err)
         } else {
-            res.redirect(`/videos/${req.params.id}`)
+            res.redirect(`/video/${req.params.id}`)
         }
     })
 })
 
 //Create
-router.post("/videos", (req, res) => {
+router.post("/", (req, res) => {
     Video.create(req.body, (error, createdVideo) => {
         if(error){
             res.status(400).json({ error })
         } else {
-            res.redirect("/videos")
+            res.redirect("/video")
         }
     })
 })
 
 //Edit
-router.get("/videos/:id/edit", (req, res) => {
+router.get("/:id/edit", (req, res) => {
     const { id } = req.params;
     Video.findById(id)
     .then((video) => {
-        res.render("videos/Edit", { video })
+        res.render("video/Edit", { video })
     })
     .catch((error) => {
         res.status(400).json({ error })
@@ -70,12 +76,15 @@ router.get("/videos/:id/edit", (req, res) => {
 })
 
 //Show
-router.get("/videos/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     const { id } = req.params
-
     Video.findById(id) 
         .then((video) => {
-            res.render("videos/Show", { video })
+            if(video.video.includes("https://youtu.be/")){
+                const vidId = video.video.slice(17, video.video.length+1)
+                video.video = vidId
+            }
+            res.render("video/Show", { video })
         })
         .catch((error) => {
             res.status(400).json({ error })    

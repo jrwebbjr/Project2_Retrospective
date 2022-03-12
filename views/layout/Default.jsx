@@ -25,7 +25,7 @@ class DefaultLayout extends React.Component {
                                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul className="navbar-nav">
                                     <li className="nav-item active"><a className="nav-link active" href="/photographs">Photography</a></li>
-                                    <li className="nav-item active"><a className="nav-link active" href="/videos">Video</a></li>
+                                    <li className="nav-item active"><a className="nav-link active" href="/video">Video</a></li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Upload

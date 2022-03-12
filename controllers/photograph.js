@@ -12,14 +12,12 @@ router.get("/", (req, res) => {
 
 //Index
 router.get("/photographs", (req, res) => {
-    Photograph.find({}, (err, foundPhotographs) => {
-        if (err) {
-            res.status(400).json({ err })
-        } else {
-            res.render("photographs/Index", {
-                photographs: foundPhotographs
-            })
-        }
+    Photograph.find({})
+    .then((photographs) => {
+        res.render("photographs/Index", { photographs })
+    })
+    .catch((error) => {
+        res.status(400).json({ error })
     })
 })
 
