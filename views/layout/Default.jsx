@@ -14,10 +14,11 @@ class DefaultLayout extends React.Component {
                     <link rel="stylesheet" href="https://use.typekit.net/nte1kef.css"></link>
                     <link rel="stylesheet" href="/public/styles.css" />
                     <script src="/app.js" defer></script>
+                    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/ojISYdI.jpg"></link>
                 </head>
                 <body>
                     <header>
-                        <nav className="p-3 navbar navbar-expand-sm navbar-light bg-light">
+                        <nav className="sticky-top p-3 navbar navbar-expand-sm navbar-light bg-light">
                             <div className="container-fluid">
                                 <a className="navbar-brand" href="/">
                                     <img classname="d-inline-block align-top"  src="https://i.imgur.com/ojISYdI.jpg"/>   
@@ -32,7 +33,7 @@ class DefaultLayout extends React.Component {
                                         </a>
                                         <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li><a className="dropdown-item" href="/photographs/new">Upload Photograph</a></li>
-                                            <li><a className="dropdown-item" href="/videos/new">Upload Video</a></li>
+                                            <li><a className="dropdown-item" href="/video/new">Upload Video</a></li>
                                         </ul>
                                     </li>
                                     <li className="nav-item"><a className="nav-link disabled" href="#">User Login</a></li>

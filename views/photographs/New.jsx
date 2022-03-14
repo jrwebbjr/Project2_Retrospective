@@ -8,19 +8,21 @@ class New extends React.Component {
                 <div>
                     <body>
                         <form action="/photographs" method="post">
-                            <fieldset>
-                                <legend>Upload a new Photograph</legend>
-                                <label>
-                                    Photograph:<input type="text" name="photograph" placeholder="Upload HTTP Photo Link"/>
-                                </label>
-                                <label>
-                                    Title:<input type="text" name="title" placeholder="Title of Photograph"/>
-                                </label>
-                                <label>
-                                    Photographer:<input type="text" name="name" placeholder="Photographers Name"/>
-                                </label>
+                            <fieldset className="d-flex d-inline-flex p-2 bd-highlight">
+                                <div className="d-flex align-items-center align-content-between flex-wrap flex-column">
+                                    <legend>Upload a new Photograph</legend>
+                                    <label>
+                                        Photograph:<input type="text" name="photograph" placeholder="Upload HTTP Photo Link"/>
+                                    </label><br/>
+                                    <label>
+                                        Title:<input type="text" name="title" placeholder="Title of Photograph"/>
+                                    </label><br/>
+                                    <label>
+                                        Photographer:<input type="text" name="name" placeholder="Photographers Name"/>
+                                    </label><br/>
+                                </div>
                             </fieldset>
-                            <input type="Submit" value="upload new photograph" />
+                            <input className="d-flex" type="Submit" value="upload new photograph" />
                         </form>
                     </body>
                 </div> 
@@ -30,3 +32,4 @@ class New extends React.Component {
 }
 
 module.exports = New;
+

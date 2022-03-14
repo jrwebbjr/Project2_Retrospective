@@ -8,19 +8,16 @@ class Index extends React.Component {
             <DefaultLayout title="Index of Photographs">
                 <div>
                     <body>
-                        <nav>
-                            <a href="/photographs/new">Upload a new photograph</a>
-                        </nav>
-                        <ul className="list-unstyled list-inline">
+                        <ul className="d-flex justify-content-evenly">
                             {
                                 photographs.map((photograph) => {
                                     return (
-                                        <li className="list-inline-item" key={`${photograph._id}`}>
+                                        <li className="d-flex align-items-center d-flex align-content-between flex-wrap flex-column d-inline-flex p-2" key={`${photograph._id}`}>
                                         
-                                        <a href={`/photographs/${photograph._id}`}><img src={photograph.photograph}></img></a><br/>
+                                        <a href={`/photographs/${photograph._id}`}><img src={photograph.photograph}></img></a><br/><br/>
                                         {photograph.title} by {photograph.photographer}
                                         <form action={`/photographs/${photograph._id}?_method=Delete`} method="POST">
-                                            <input type="submit" value={`Delete ${photograph.title}`} />
+                                            <input type="submit" value="Delete Photograph" />
                                         </form>    
                                         </li>
                                     )
@@ -35,3 +32,4 @@ class Index extends React.Component {
 }
 
 module.exports = Index;
+

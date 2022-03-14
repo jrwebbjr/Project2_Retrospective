@@ -17,12 +17,20 @@ class Home extends React.Component {
                     <script src="/app.js" defer></script>
                 </head>
                 <div className="container">
-                    <div className="row align-items-center justify-content-center">
-                        <div className="col"></div>
-                        <div className="col align-self-center">
-                            <a className="" href="/photographs"><img src="https://i.imgur.com/AN5s8rF.jpg"></img></a>
+                    <div className="">
+                        <div className=""></div>
+                    </div>
+                        <div className="">    
+                            <div className="">
+                                <a className="" href="/photographs"><img className="img.middle" src="https://i.imgur.com/AN5s8rF.jpg"></img></a>
+                            </div>      
                         </div>
-                        <div className="col"></div>
+                    <div className="">    
+                        <div className="">    
+                            <div className="text-center">
+                                <h1>A Film Photography Blog</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </html>
