@@ -14,10 +14,10 @@ class Index extends React.Component {
                                     return (
                                         <li className="d-flex align-items-center flex-column" key={`${video._id}`}>
                                             <a href={`/video/${video._id}`}>
-                                                <iframe width="560" height="315" src={`https://www.youtube.com/embed/${video.video}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                                <iframe width="560" height="315" src={`https://www.youtube.com/embed/${video.video}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullscreen>
                                                 </iframe>
                                             </a><br/>
-                                            <a href={`/video/${video._id}`}> {video.title} by {video.director}</a>
+                                            <a className="link-dark" href={`/video/${video._id}`}> {video.title} by {video.director}</a>
                                             <form action={`/video/${video._id}?_method=Delete`} method="POST">
                                             <input type="submit" value={`Delete ${video.title}`} />
                                             </form>
