@@ -8,21 +8,24 @@ class New extends React.Component {
                 <div>
                     <body>
                         <form action="/photographs" method="post">
-                            <fieldset className="d-flex d-inline-flex p-2 bd-highlight">
-                                <div className="d-flex align-items-center align-content-between flex-wrap flex-column">
+                            <fieldset>
+                                <div>
                                     <legend>Upload a new Photograph</legend>
-                                    <label>
-                                        Photograph:<input type="text" name="photograph" placeholder="Upload HTTP Photo Link"/>
-                                    </label><br/>
-                                    <label>
-                                        Title:<input type="text" name="title" placeholder="Title of Photograph"/>
-                                    </label><br/>
-                                    <label>
-                                        Photographer:<input type="text" name="name" placeholder="Photographers Name"/>
-                                    </label><br/>
+                                    <div class="mb-3">
+                                        <label for="photograph" class="form-label"> Photograph:</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Photograph Link"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="title" class="form-label"> Title:</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Photograph Title"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="photographer" class="form-label"> Photographer:</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Name"/>
+                                    </div>
                                 </div>
                             </fieldset>
-                            <input className="d-flex" type="Submit" value="upload new photograph" />
+                            <input className="d-flex" type="Submit" value="upload Photograph" />
                         </form>
                     </body>
                 </div> 

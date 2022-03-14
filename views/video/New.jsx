@@ -9,16 +9,21 @@ class New extends React.Component {
                     <body>
                         <form action="/video" method="post">
                             <fieldset>
-                                <legend>Upload new Video</legend>
-                                <label>
-                                    Video:<input type="text" name="video" placeholder="Upload Video Link"/>
-                                </label>
-                                <label>
-                                    Title:<input type="text" name="title" placeholder="Title of Video"/>
-                                </label>
-                                <label>
-                                    Director:<input type="text" name="director" placeholder="Directors Name"/>
-                                </label>
+                                <div>
+                                    <legend>Upload a new Video</legend>
+                                    <div class="mb-3">
+                                        <label for="formGroupExampleInput" class="form-label"> Video:</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Video Link"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formGroupExampleInput2" class="form-label"> Title:</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Video Title"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formGroupExampleInput2" class="form-label"> Director:</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Name"/>
+                                    </div>
+                                </div>
                             </fieldset>
                             <input type="Submit" value="upload new video" />
                         </form>
