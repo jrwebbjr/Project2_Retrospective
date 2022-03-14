@@ -13,12 +13,11 @@ class DefaultLayout extends React.Component {
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
                     <link rel="stylesheet" href="https://use.typekit.net/nte1kef.css"></link>
                     <link rel="stylesheet" href="/public/styles.css" />
-                    <script src="/app.js" defer></script>
                     <link rel="icon" type="image/x-icon" href="https://i.imgur.com/ojISYdI.jpg"></link>
                 </head>
                 <body>
                     <header>
-                        <nav className="sticky-top p-3 navbar navbar-expand-sm navbar-light bg-light">
+                        <nav className="navbar sticky-top p-3 navbar-expand-sm navbar-light bg-light">
                             <div className="container-fluid">
                                 <a className="navbar-brand" href="/">
                                     <img classname="d-inline-block align-top"  src="https://i.imgur.com/ojISYdI.jpg"/>   

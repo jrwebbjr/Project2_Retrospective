@@ -12,8 +12,7 @@ class Index extends React.Component {
                             {
                                 photographs.map((photograph) => {
                                     return (
-                                        <li className="d-flex align-items-center d-flex align-content-between flex-wrap flex-column d-inline-flex p-2" key={`${photograph._id}`}>
-                                        
+                                        <li className="d-flex align-items-center flex-column" key={`${photograph._id}`}>
                                         <a href={`/photographs/${photograph._id}`}><img src={photograph.photograph}></img></a><br/><br/>
                                         {photograph.title} by {photograph.photographer}
                                         <form action={`/photographs/${photograph._id}?_method=Delete`} method="POST">

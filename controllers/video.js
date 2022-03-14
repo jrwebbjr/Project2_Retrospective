@@ -9,20 +9,24 @@ const router = express.Router();
 router.get("/", (req, res) => {
     Video.find({})
     .then((videos) => {
+        console.log(videos)
         for(const video of videos){
-            // console.log(videos[video])
-            if(video.video.includes("https://youtu.be/")){
+            const test = video.video.includes("https://youtu.be/")
+            console.log(test)
+            if(test){
                 const vidId = video.video.slice(17, video.video.length+1)
                 video.video = vidId
+            } else {
+                video.video = '';
             }
         }
         res.render("video/Index", { videos })
     })
     .catch((error) => {
-        res.status(400).json({ error })
-    })
+        // res.status(400).json({ error })    
+        console.log(error)
+        })
 })
-
 
 //New
 router.get("/new", (req, res) => {
