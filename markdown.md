@@ -1,14 +1,12 @@
 # Retrospective
 
-![Landing Page](https://i.imgur.com/wv8saEZ.png)
+![Landing Page](https://i.imgur.com/huSp7a2.png)
 
 ## About Retrospective
 
 Retrospective is a film photography blog, where users can upload their own film photographs to share. There is also a video section where users can upload videos they have made using film as well.  
 
 ## App Images
-
-### Photagraphs Index
 
 ### Photograph Index  
 
